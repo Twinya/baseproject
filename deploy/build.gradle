@@ -1,0 +1,55 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//构建可执行jar/war包
+task mytask {
+    setArchivesBaseName("fun")
+    version = "${profile}-${project.version}"
+}
+bootJar {
+    classifier = 'boot'
+    excludes = ["*.jar"]
+}
+configurations {
+    providedRuntime
+}
+
+//只对gradle spring-boot:run 有效
+ext {
+    applicationDefaultJvmArgs = ['-Xmx512M']
+    set('springCloudVersion', 'Hoxton.M3')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.jolokia:jolokia-core:$jolokiaVersion" //JMX
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation project(":common")
+    implementation project(":configs")
+    implementation project(":frame")
+//    implementation project(":user")
+//    implementation project(":task")
+    implementation project(":im")
+    implementation project(":pay")
+//    implementation project(":sms")
+//    implementation project(":oss")
+//    implementation project(":push")
+//    implementation project(":operationlog")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}

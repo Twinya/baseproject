@@ -1,0 +1,9 @@
+dependencies {
+    implementation project(":frame")
+    implementation project(":sms")
+//    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.5.0'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

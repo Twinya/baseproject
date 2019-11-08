@@ -1,0 +1,27 @@
+spring:
+  application:
+    #当前应用名称
+    name: fun-server
+  cloud:
+    config:
+      profile: prod
+      label: master
+      discovery:
+        enabled: true
+        service-id: configserver
+      fail-fast: true
+      name: fun-server
+  rabbitmq:
+    host: 172.16.216.217
+    port: 5672
+    username: jianlingmq
+    password: jianling.123
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      #注册中心的地址
+      defaultZone: http://jianling:jianlingkeji.123@172.16.178.15:8777/eureka/

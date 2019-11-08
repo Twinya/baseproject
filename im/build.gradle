@@ -1,0 +1,17 @@
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(":frame")
+//    implementation project(":user")
+//    implementation project(":task")
+//    implementation project(":push")
+//    implementation project(":sms")
+//    implementation project(":oss")
+//    implementation project(":operationlog")
+    compile 'cn.jpush.api:jmessage-client:1.1.9'
+    compile 'cn.jpush.api:jiguang-common:1.1.3'
+    compile 'com.google.code.gson:gson:2.8.5'
+
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

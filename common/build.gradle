@@ -1,0 +1,31 @@
+dependencies {
+    //common
+    compile "commons-codec:commons-codec:$commonsCodecVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+    compile "org.apache.commons:commons-lang3:$commonsLangVersion"
+    compile "commons-io:commons-io:$commonsIOVersion"
+    compile "org.yaml:snakeyaml:$yamlVersion"
+
+    //DB
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion"
+    compile "redis.clients:jedis:$jedisVersion"
+    compile "com.alibaba:druid:$druidVersion"
+    compile "mysql:mysql-connector-java:$mysqlConnectorVersion"
+
+    //util
+    compile "com.alibaba:fastjson:$fastjsonVersion"
+    compile "org.javatuples:javatuples:$javatuplesVersion"
+
+
+    //web
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
+    compile "io.springfox:springfox-swagger2:$swaggerVersion"
+    compile "io.springfox:springfox-swagger-ui:$swaggerVersion"
+
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

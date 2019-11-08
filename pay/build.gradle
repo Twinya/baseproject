@@ -1,0 +1,17 @@
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(":frame")
+//    implementation project(":user")
+//    implementation project(":task")
+//    implementation project(":push")
+//    implementation project(":sms")
+//    implementation project(":oss")
+//    implementation project(":operationlog")
+    compile "com.alipay.sdk:alipay-sdk-java:$alipayVersion"
+    compile group: 'org.jdom', name: 'jdom', version: "$jdomVersion"
+
+
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

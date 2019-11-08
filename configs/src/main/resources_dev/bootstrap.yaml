@@ -1,0 +1,21 @@
+spring:
+  application:
+    #当前应用名称
+    name: fun-server
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: configserver
+      fail-fast: true
+      name: fun-server
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      #注册中心的地址
+      defaultZone: http://jianling:jianlingkeji.123@localhost:8777/eureka/

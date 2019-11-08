@@ -1,0 +1,9 @@
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(":frame")
+    compile 'com.aliyun:aliyun-java-sdk-core:4.1.0'
+    compile 'com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

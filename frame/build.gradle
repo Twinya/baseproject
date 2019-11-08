@@ -1,0 +1,12 @@
+dependencies {
+    compile project(":common")
+    compile "com.squareup.okhttp:okhttp:$okhttpVersion"
+    compile "com.squareup.okio:okio:$okioVersion"
+    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+    //monitor
+    compile "org.javasimon:javasimon-spring:$javasimonVersion"
+    compile "org.javasimon:javasimon-console-embed:$javasimonVersion"
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

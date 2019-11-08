@@ -1,0 +1,8 @@
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(":frame")
+    implementation "cn.jpush.api:jpush-client:3.3.9"
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

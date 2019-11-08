@@ -1,0 +1,58 @@
+apply plugin: 'idea'
+
+allprojects {
+    group = "com.appengine"
+    version = "0.1.RELEASE"
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    buildscript {
+        repositories {
+            maven { url 'https://maven.aliyun.com/repository/public/' }
+            maven { url 'https://maven.aliyun.com/repository/spring/'}
+            mavenLocal()
+            mavenCentral()
+        }
+    }
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/spring/'}
+        mavenLocal()
+        mavenCentral()
+    }
+
+    //idea插件会默认下载source和doc文件
+    idea {
+        module {
+            downloadJavadoc = false
+            downloadSources = false
+            inheritOutputDirs = false
+            outputDir = file("$buildDir/classes/main/")
+        }
+    }
+
+    dependencies {
+        testCompile "org.assertj:assertj-core:$assertjVersion"
+        testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+        annotationProcessor 'org.projectlombok:lombok:1.18.4'
+        compileOnly 'org.projectlombok:lombok:1.18.4'
+    }
+
+}
+
+//执行gradle wrapper自动生成gradlew脚本及配置
+wrapper {
+    gradleVersion = '5.1'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

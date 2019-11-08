@@ -1,0 +1,15 @@
+rootProject.name = 'baseproject'
+
+include 'common'
+include 'configs'
+include 'frame'
+include 'deploy'
+include 'user'
+include 'task'
+include 'im'
+include 'pay'
+include 'sms'
+include 'push'
+include 'oss'
+include 'operationlog'
+

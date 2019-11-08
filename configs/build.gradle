@@ -1,0 +1,21 @@
+dependencies {
+    //保证spring配置文件不报错,注意使用版本号需和全工程保持一直，放置包混乱
+    implementation "org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion"
+    implementation "redis.clients:jedis:$jedisVersion"
+    implementation "com.alibaba:druid:$druidVersion"
+}
+
+//环境变量只对配置文件有效
+ext {
+    profile = project['profile']
+}
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources/", "src/main/resources_${profile}"]
+        }
+    }
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

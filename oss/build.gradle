@@ -1,0 +1,9 @@
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(":frame")
+    compile "com.aliyun.oss:aliyun-sdk-oss:3.4.0"
+    implementation "com.tinify:tinify:1.6.4"
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

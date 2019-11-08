@@ -1,0 +1,25 @@
+server:
+  port: 8080
+##运行状态 actuator监控
+management:  #actuator
+  endpoints:
+    web:
+      base-path: /api/actuator
+      exposure:
+        include: "*"
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+spring:
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    sqlScriptEncoding: UTF-8
+  profiles:
+    active: dev

@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(":frame")
+    implementation project(":user")
+    implementation project(":oss")
+    implementation project(":sms")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
